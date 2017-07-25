@@ -23,7 +23,7 @@ int main() {
             visit[cur] = true;
             if(cur == G) break;
             if(cur + U <= F)	q.push(info(cur + U, btn_cnt + 1));
-            if(cur - D > 0)		q.push(info(cur - D, btn_cnt + 1));
+            if(cur - D > 0)	q.push(info(cur - D, btn_cnt + 1));
         }
     }
     if (visit[G]) cout << btn_cnt;
