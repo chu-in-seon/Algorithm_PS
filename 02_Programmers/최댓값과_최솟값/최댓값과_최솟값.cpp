@@ -1,30 +1,35 @@
 #include <string>
 #include <vector>
+#include <algorithm>
 
 using namespace std;
 
 string solution(string s) {
     string answer = "";
-    const size_t sSize = s.length();
-    for (int idx = 0;idx < sSize; idx++) {
-        char c = s[idx];
-        if (0 <= c-'0' && 9 >= c-'0') {
-            continue;
-        }
+    int32_t prevPos = 0;
+    int32_t curPos = s.find(' ');
+    vector<int32_t> numList;
 
-        if (0 == idx) {
-            s[0] = toupper(c);
-            continue;
-        }
-
-        if (' ' == s[idx-1]) {
-            s[idx] = toupper(c);
-            continue;
-        }
-
-        s[idx] = tolower(c);
+    while (string::npos != curPos) {
+        string substr = s.substr(prevPos, curPos - prevPos);
+        numList.push_back(atoi(substr.c_str()));
+        prevPos = curPos + 1;
+        curPos = s.find(' ', prevPos);
     }
+    numList.push_back(atoi(s.substr(prevPos, curPos - prevPos).c_str()));
 
-    answer = s;
+    int32_t max = INT32_MIN;
+    int32_t min = INT32_MAX;
+    for (const int32_t num : numList) {
+        if (max < num) {
+            max = num;
+        }
+        
+        if( min > num) {
+            min = num;
+        }
+    }
+    
+    answer = to_string(min) + ' ' + to_string(max);
     return answer;
 }
