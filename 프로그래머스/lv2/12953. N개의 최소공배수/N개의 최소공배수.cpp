@@ -14,8 +14,8 @@ int gcd(int a, int b) {
 
 int solution(vector<int> arr) {
     const size_t arrSize = arr.size();
-    long long gcdVal = arr[0];
-    long long lcmVal = arr[0];
+    int gcdVal = arr[0];
+    int lcmVal = arr[0];
     for (int i = 1; i < arrSize; i++) {
         gcdVal = gcd(lcmVal, arr[i]);
         lcmVal = lcmVal * arr[i] / gcdVal;
