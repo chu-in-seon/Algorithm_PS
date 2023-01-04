@@ -19,7 +19,7 @@ vector<int> solution(int n, vector<string> words) {
     for (int i = 1; i < wordsSize; i++) {
         answer[0] = (i % n) + 1;
         answerCnt[(i % n)]++;
-        if ( ( words[i-1].back() != words[i].front() ) || ( calledStr.end() != find(calledStr.begin(), calledStr.end(), words[i]) )) {
+        if ( ( words[i-1].back() != words[i].front() ) || ( calledStr.end() != find(calledStr.begin(), calledStr.end(), words[i]) ) ) {
             answer[1] = answerCnt[(i % n)];
             return answer;
         }
