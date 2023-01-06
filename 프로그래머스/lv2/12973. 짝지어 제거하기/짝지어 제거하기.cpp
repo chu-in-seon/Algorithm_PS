@@ -18,7 +18,7 @@ int solution(string s)
         if ( (true == charStack.empty()) || (charElement != charStack.top()) ) {
             charStack.push(charElement);
         }
-        else {
+        else ( charElement == charStack.top() ) {
             charStack.pop();
         }
     }
