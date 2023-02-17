@@ -34,12 +34,12 @@ int main(int argc, char** argv)
 	int len = 0;
 	cin >> len;
 	for(int i = 1; i <= len; i++) {
-        string tmp;
-        cin >> tmp;
-        for (int j = 1; j <= len; j++) {
-            roadMap[i][j] = tmp[j - 1] - '0';
+            string tmp;
+            cin >> tmp;
+            for (int j = 1; j <= len; j++) {
+                roadMap[i][j] = tmp[j - 1] - '0';
+            }
         }
-    }
 	
 	vector<int> blocks;
 	for (int i = 1; i <= len; i++) {
