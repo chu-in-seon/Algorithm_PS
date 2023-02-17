@@ -33,7 +33,7 @@ int main(int argc, char** argv)
 {
 	int len = 0;
 	cin >> len;
-    for(int i = 1; i <= len; i++) {
+	for(int i = 1; i <= len; i++) {
         string tmp;
         cin >> tmp;
         for (int j = 1; j <= len; j++) {
